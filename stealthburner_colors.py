@@ -1,4 +1,27 @@
 #!python
+# This script changes the color of the Voron Stealthburner logo LED to the color of
+# the Feature Type (which is classified by the slicer) that is currently being printed.
+# 
+# This postprocess script, especially the idea of adding gcode by the TYPE string,
+# was inspired by RomRider's https://github.com/RomRider/klipper-FastGyroidInfill
+#
+# In order to make this work, you first need Stealthburner, which (of course) has
+# built-in LEDs. And the LEDs must be configured in printer.cfg.
+# If the toolhead LEDs don't have a dedicated chain, e.g. are strung after the
+# same string as the ceiling LEDs, you'll have to give it a different INDEX. 
+# 
+# printer.cfg example:
+#
+# [neopixel stealthburner]
+# pin: PD3  # Fysetc Spider v2.2
+# chain_count: 3
+# initial_RED: 1
+# initial_GREEN: 1
+# initial_BLUE: 1
+# color_order: GRB
+#
+# written by Sadao Ikebe 2022
+# 
 import sys
 import re
 import os
