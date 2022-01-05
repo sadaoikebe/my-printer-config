@@ -31,9 +31,9 @@ with open(destFile, "w") as of:
         # Parse gcode line
         if oline.startswith(';TYPE:Internal perimeter'):
             of.write('SET_LED LED=stealthburner INDEX=1 RED=1 GREEN=1 BLUE=0\n')
-        if oline.startswith(';TYPE:External perimeter'):
+        elif oline.startswith(';TYPE:External perimeter'):
             of.write('SET_LED LED=stealthburner INDEX=1 RED=1 GREEN=0.6 BLUE=0\n')
-        if oline.startswith(';TYPE:Overhang perimeter'):
+        elif oline.startswith(';TYPE:Overhang perimeter'):
             of.write('SET_LED LED=stealthburner INDEX=1 RED=0 GREEN=0 BLUE=1\n')
         elif oline.startswith(';TYPE:Internal infill'):
             of.write('SET_LED LED=stealthburner INDEX=1 RED=0.6 GREEN=0 BLUE=0\n')
