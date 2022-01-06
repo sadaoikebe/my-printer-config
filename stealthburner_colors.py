@@ -36,10 +36,10 @@ with open(sourceFile, "r") as f:
 if (sourceFile.endswith('.gcode')):
     destFile = re.sub('\.gcode$','',sourceFile)
     try:
-        os.rename(sourceFile, destFile+".sqv.bak")
+        os.rename(sourceFile, destFile+".led.bak")
     except FileExistsError:
-        os.remove(destFile+".sqv.bak")
-        os.rename(sourceFile, destFile+".sqv.bak")
+        os.remove(destFile+".led.bak")
+        os.rename(sourceFile, destFile+".led.bak")
     destFile = re.sub('\.gcode$','',sourceFile)
     destFile = destFile + '.gcode'
 else:
